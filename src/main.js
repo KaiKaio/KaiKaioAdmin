@@ -7,6 +7,12 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
 import axios from 'axios'
+import apiConfig from './config/api.config'
+
+import '@/assets/styles/app.scss'
+import '@/assets/styles/normalize.css'
+
+axios.defaults.baseURL = apiConfig.baseUrl
 Vue.prototype.$axios = axios
 
 Vue.use(ElementUI)

@@ -1,6 +1,6 @@
 <template>
   <div id="nav-bar">
-    NavBar
+    <div class="discription">一代人终将老去，但也总有人正年轻</div>
   </div>
 </template>
 
@@ -18,7 +18,12 @@ export default {
   position: fixed;
   left: 240px;
   z-index: 1;
-  background: #8d8d8d;
+  color: #8d8d8d;
+  border-bottom: 1px solid #ccc;
+  .discription {
+    margin-left: 4px;
+    margin-top: 4px;
+  }
 }
 
 </style>

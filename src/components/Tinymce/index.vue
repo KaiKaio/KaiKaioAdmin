@@ -221,8 +221,9 @@ export default {
   opacity:0;
   position:absolute;
   top:0;
-  right:0;
+  right: 12px;
   height: 35px;
+  width: 70px;
   cursor: pointer;
 }
 #EditoruploadButton {

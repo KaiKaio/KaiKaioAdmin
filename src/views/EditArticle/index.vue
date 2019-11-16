@@ -19,8 +19,10 @@
 import Tinymce from '@/components/Tinymce'
 import MDinput from '@/components/MDinput'
 
+import { mapState } from 'vuex'
+
 export default {
-  name: 'AddArticle',
+  name: 'EdirArticle',
   components: { Tinymce, MDinput },
   data() {
     return {
@@ -31,15 +33,25 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapState({
+      articleList: state => state.Article.ArticleList
+    })
+  },
+  mounted() {
+    this.ArticleForm.title = this.articleList[this.$route.query.id].title
+    this.ArticleForm.content = this.articleList[this.$route.query.id].content
+    this.ArticleForm.description = this.articleList[this.$route.query.id].description
+  },
   methods: {
     submitForm() {
-      console.log(this.postForm)
-      this.$axios.post('/Article/Add', {
+      this.$axios.put('/Article/Edit/', {
+        id: this.articleList[this.$route.query.id]._id,
+        content: this.ArticleForm.content,
         title: this.ArticleForm.title,
-        description: this.ArticleForm.description,
-        content: this.ArticleForm.content
+        description: this.ArticleForm.description
       }).then((res) => {
-        this.$message.success('提交成功')
+        console.log(res)
       })
     }
   }

@@ -27,6 +27,12 @@ const routes = [
         name: 'AddArticle',
         component: () => import('@/views/AddArticle'),
         meta: { title: '添加文章' }
+      },
+      {
+        path: '/EditArticle',
+        name: 'EditArticle',
+        component: () => import('@/views/EditArticle'),
+        meta: { title: '编辑文章' }
       }
     ]
   }
